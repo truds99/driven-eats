@@ -1,0 +1,60 @@
+body {
+    width: 100%;
+    background-color: rgb(221, 221, 220);
+}
+.topo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100vw;
+    height: 92px;
+    background-color: #CF2B2B;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 7vw;
+    box-shadow: 0px 4px 4px 0px #00000040;
+
+}
+.menu{
+    margin-top: 123px;
+}
+img{
+    object-fit: cover;
+    width: 144px;
+    height: 87px;
+}
+h1{
+    font-family: 'Righteous', sans-serif;
+    font-size: 44px;
+    font-weight: 400;
+    color: #ffffff;
+}
+h2{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: #ffffff;
+}
+h3{
+    font-family: 'Righteous', sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: #333333;
+    padding-left: 7vw;
+    margin-bottom: 17px;
+}
+[class *= opcoes] {
+    display:flex;
+    margin-bottom: 27px;
+}
+.prato, .bebida, .sobremesa{
+    padding-left: 7vw;
+    
+}
+h4{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #333333;
+}
