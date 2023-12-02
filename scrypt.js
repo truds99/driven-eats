@@ -1,10 +1,15 @@
-let pratoSelecionado;
-let bebidaSelecionada;
-let sobreSelecionada;
+let pratoSelecionado, bebidaSelecionada, sobreSelecionada;
 const msg = document.querySelector("button").innerHTML; // para voltar o texto inicial ao desmarcar uma opção
 const botao = document.querySelector("button"); // para alterar o background do botão
 
 document.querySelector("button").disabled = true;
+
+function converterNumero (precoString) {
+    let preco = precoString.replace("R$ ","");
+    preco = preco.replace(",",".");
+    preco = Number(preco);
+    return preco;
+}
 
 function selecaoPrato(elemento) {
     pratoSelecionado = document.querySelector(".prato.selecionado");
@@ -44,6 +49,7 @@ function selecaoSobre(elemento) {
     sobreSelecionada = document.querySelector(".sobremesa.selecionado");
     pedido();
 }
+
 function pedido() {
     if (pratoSelecionado && bebidaSelecionada && sobreSelecionada){
         document.querySelector("button").innerHTML = "Fechar pedido";
@@ -57,11 +63,22 @@ function pedido() {
     }
 }   
 
-function whatsapp(){    
+function whatsapp(){
+    let nome = prompt("Qual o seu nome?");
+    let endereco = prompt("Qual o seu endereço?");  
     let prato = pratoSelecionado.querySelector("h4").innerHTML;
     let bebida = bebidaSelecionada.querySelector("h4").innerHTML;
     let sobremesa = sobreSelecionada.querySelector("h4").innerHTML;
-    let preco = Number(pratoSelecionado.querySelector("span").innerHTML) + Number(bebidaSelecionada.querySelector("span").innerHTML) + Number(sobreSelecionada.querySelector("span").innerHTML);
-    const url = "https://wa.me/?text=" + encodeURIComponent("Olá, gostaria de fazer o pedido:\n- Prato: ") + prato + encodeURIComponent("\n- Bebida: ") + bebida + encodeURIComponent("\n- Sobremesa: ") + sobremesa + encodeURIComponent("\nTotal: R$ ") + preco.toFixed(2);
-    window.open(url, '_blank');
+    let precoTotal = converterNumero(pratoSelecionado.querySelector("h6").innerHTML) + converterNumero(bebidaSelecionada.querySelector("h6").innerHTML) + converterNumero(sobreSelecionada.querySelector("h6").innerHTML);
+    let msg = `Olá, gostaria de fazer o pedido: 
+    - Prato: ${prato}
+    - Bebida: ${bebida}
+    - Sobremesa: ${sobremesa}
+    Total: R$ ${precoTotal.toFixed(2)}
+    
+    Nome: ${nome}
+    Endereço: ${endereco}`;
+    msg = encodeURIComponent(msg);
+    const url = `https://wa.me/?text=${msg}`;
+    window.open(url);
 }
