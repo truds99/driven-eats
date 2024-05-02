@@ -118,9 +118,37 @@
     </div>
 
     <div class="bottom">
-        <button onclick="whatsapp()">
+        <button onclick="confirmarPedido()">
             Selecione os 3 itens <br> para fechar o pedido
         </button>
+    </div>
+
+    <div class="escondido">
+        <div class="janela">
+            Confirme seu pedido
+            <div class="valores">
+                <div class="valor-Prato">
+                    <p class="item"></p>
+                    <p class="preco"></p>
+                </div>
+                <div class="valor-Bebida">
+                    <p class="item"></p>
+                    <p class="preco"></p>
+                </div>
+                <div class="valor-Sobremesa">
+                    <p class="item"></p>
+                    <p class="preco"></p>
+                </div>
+                <div class="valor-Total">
+                    <p>TOTAL</p>
+                    <p></p>
+                </div>
+            </div>
+            <button onclick="whatsapp()">
+                Tudo certo, pode pedir!
+            </button>
+            <p onclick="fecharJanela()">Cancelar</p>
+        </div>
     </div>
 
     <script src="scrypt.js"></script>
